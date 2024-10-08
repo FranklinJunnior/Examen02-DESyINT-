@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html ng-app="movieGenres">
+  <head>
+    <meta charset="utf-8">
+    <title>Movie Genres -- Result</title>
+    <base href="/index.html">
+    <meta name = "viewport" content = "width=device-width, initial-scale = 1.0">
+    <meta name="keywords" content="docker-compose, docker, stack">
+    <meta name="author" content="Docker">
+    <link rel='stylesheet' href='/stylesheets/style.css' />
+  </head>
+  <body ng-controller="statsCtrl" >
+    <div id="background-stats">
+      <div id="background-stats-1"></div><!--
+      --><div id="background-stats-2"></div><!--
+      --><div id="background-stats-3"></div><!--
+      --><div id="background-stats-4"></div><!--
+      --><div id="background-stats-5"></div>
+    </div>
+    <div id="content-container">
+      <div id="content-container-center">
+        <div id="choice">
+          <div class="choice action">
+            <div class="label">Action</div>
+            <div class="stat">{{aPercent | number:1}}%</div>
+          </div>
+          <div class="divider"></div>
+          <div class="choice comedy">
+            <div class="label">Comedy</div>
+            <div class="stat">{{bPercent | number:1}}%</div>
+          </div>
+          <div class="divider"></div>
+          <div class="choice drama">
+            <div class="label">Drama</div>
+            <div class="stat">{{cPercent | number:1}}%</div>
+          </div>
+          <div class="divider"></div>
+          <div class="choice horror">
+            <div class="label">Horror</div>
+            <div class="stat">{{dPercent | number:1}}%</div>
+          </div>
+          <div class="divider"></div>
+          <div class="choice romance">
+            <div class="label">Romance</div>
+            <div class="stat">{{ePercent | number:1}}%</div>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div id="result">
+      <span ng-if="total == 0">No votes yet</span>
+      <span ng-if="total == 1">{{total}} vote</span>
+      <span ng-if="total >= 2">{{total}} votes</span>
+    </div>
+    <script src="socket.io.js"></script>
+    <script src="angular.min.js"></script>
+    <script src="app.js"></script>
+  </body>
+</html>
